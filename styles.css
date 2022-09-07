@@ -63,8 +63,13 @@ body {
   gap: 5px;
 }
 
+.balance-text {
+  font-size: 1em;
+  font-weight: 400;
+}
+
 .balance-amount {
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: 700;
 }
 
@@ -76,7 +81,7 @@ body {
   background-color: hsla(0, 100%, 100%, 0.75);
 }
 
-.spending-card h1 {
+.spending-card h2 {
   font-size: 1.75em;
   font-weight: 700;
   color: var(--clr-neutral-dark);
@@ -201,7 +206,7 @@ hr {
     height: auto;
   }
 
-  .spending-card h1 {
+  .spending-card h2 {
     font-size: 1.5em;
   }
 
