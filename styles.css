@@ -161,10 +161,20 @@ hr {
   color: var(--clr-neutral-medium);
 }
 
+.month-total h2 {
+  font-size: 1em;
+  font-weight: 400;
+}
+
 .month-total span {
   font-size: 2.5em;
   font-weight: 700;
   color: var(--clr-neutral-dark);
+}
+
+.month-change {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .month-change span {
@@ -173,6 +183,11 @@ hr {
   margin-left: auto;
   color: var(--clr-neutral-dark);
   font-weight: 700;
+}
+
+.month-change h2 {
+  font-size: 1em;
+  font-weight: 400;
 }
 
 .attribution {
