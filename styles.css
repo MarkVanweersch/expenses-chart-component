@@ -1,0 +1,224 @@
+:root {
+  --clr-primary-red: hsl(10, 79%, 65%);
+  --clr-primary-cyan: hsl(186, 34%, 60%);
+
+  --clr-neutral-dark: hsl(25, 47%, 15%);
+  --clr-neutral-medium: hsl(28, 10%, 53%);
+  --clr-neutral-light: hsl(27, 66%, 92%);
+  --clr-neutral-accent: hsl(33, 100%, 98%);
+  /* supposed to be very pale orange */
+
+  --clr-primary-white: hsl(0, 100%, 100%);
+
+  /* border radius for cards */
+  --border-radius: 1em;
+}
+
+* { box-sizing: border-box; }
+
+html { font-family: 'DM Sans', sans-serif; }
+
+body { font-size: 18px; }
+
+body, 
+h1, 
+h2, 
+ul, 
+li, 
+p, 
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--clr-neutral-light);
+}
+
+.card {
+  width: 540px;
+  height: 658px;
+}
+
+.balance-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 32px;
+
+  color: var(--clr-neutral-light);
+  background-color: var(--clr-primary-red);
+
+  border-radius: var(--border-radius);
+}
+
+.balance-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.balance-amount {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.spending-card {
+  margin-top: 25px;
+  padding: 1.25em 1.75em;
+  
+  border-radius: var(--border-radius);
+  background-color: hsla(0, 100%, 100%, 0.75);
+}
+
+.spending-card h1 {
+  font-size: 1.75em;
+  font-weight: 700;
+  color: var(--clr-neutral-dark);
+}
+
+.bar-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding-block: 1em;
+}
+
+.bar {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 8px;
+  height: 250px;
+}
+
+.bar-amount {
+  position: relative;
+  z-index: 1;
+
+  padding: 8px 5px;
+  border-radius: 5px;
+  width: 100%;
+
+  text-align: center;
+  color: var(--clr-primary-white);
+  background-color: var(--clr-neutral-dark);
+  visibility: hidden;
+}
+
+/* show amount on click */
+.visible { visibility: visible }
+
+@keyframes bar-animation {
+  0% {height: 0px;} 
+}
+
+.bar-middle {
+  max-height: 100%;
+  width: 80%;
+  background-color: var(--clr-primary-red);
+  border-radius: 5px;
+
+  animation: bar-animation 1000ms ease-out;
+}
+
+/* different background color on click */
+.highlighted { background-color: var(--clr-primary-cyan); }
+
+.bar-middle:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.bar-middle:hover + .bar-amount {
+  visibility: visible;
+}
+
+.bar-name {
+  font-size: 0.9em;
+  color: var(--clr-neutral-medium);
+}
+
+hr {
+  border: 1px solid var(--clr-neutral-light);
+  border-bottom: none;
+}
+
+.month-overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-block: 1.8em 1em;
+  color: var(--clr-neutral-medium);
+}
+
+.month-total span {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: var(--clr-neutral-dark);
+}
+
+.month-change span {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  color: var(--clr-neutral-dark);
+  font-weight: 700;
+}
+
+.attribution {
+  position: absolute;
+  z-index: -1;
+  bottom: 10px;
+  text-align: center;
+}
+
+@media (max-width: 550px) {
+  :root {
+    --border-radius: 0.5em;
+  }
+
+  body {
+    font-size: 14px;
+    padding-block: 1em;
+  }
+
+  .card {
+    width: 310px;
+    height: auto;
+  }
+
+  .balance-card {
+    padding: 20px 18px;
+  }
+
+  .balance-logo {
+    width: 50px;
+    height: auto;
+  }
+
+  .spending-card h1 {
+    font-size: 1.5em;
+  }
+
+  .bar-container {
+    grid-template-columns: repeat(7, 14.28%);
+  }
+
+  .bar-amount {
+    width: unset;
+    font-size: 0.9em;
+  }
+
+  .month-overview {
+    padding-block: 1.5em 0em;
+  }
+
+  .month-total span {
+    font-size: 2em;
+  }
+}
